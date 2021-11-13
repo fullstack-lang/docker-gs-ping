@@ -1,6 +1,8 @@
 package main
 
 import (
+	"embed"
+	"log"
 	"net/http"
 	"os"
 
@@ -8,7 +10,16 @@ import (
 	"github.com/labstack/echo/v4/middleware"
 )
 
+//go:embed foo
+var foo embed.FS
+
 func main() {
+
+	entries, err := foo.ReadDir(".")
+	if err != nil {
+		log.Fatal(err)
+	}
+	log.Println(entries[0].Name())
 
 	e := echo.New()
 
