@@ -8,6 +8,12 @@
             "type": "shell",
             "command": "docker build --tag docker-gs-ping .",
             "group": "build",
+        },
+        {
+            "label": "docker run -it docker-gs-ping sh",
+            "type": "shell",
+            "command": "docker run -it docker-gs-ping sh",
+            "group": "build",
         }
     ]
 }
